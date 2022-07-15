@@ -1,4 +1,4 @@
-Nobel winners
+thomas sease
 ================
 Naomi Ekas
 
@@ -9,14 +9,14 @@ library(tidyverse)
 Let’s first load the data:
 
 ``` r
-nobel <- ___(___)
+nobel <- read.csv("data-raw/nobel.csv")
 ```
 
 Then let’s split the data into two:
 
 ``` r
 # stem laureates
-___ <- nobel %>%
+nobel.split <- nobel %>%
   filter(___)
 
 # non-steam laureates

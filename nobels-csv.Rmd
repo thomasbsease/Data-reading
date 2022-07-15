@@ -1,5 +1,5 @@
 ---
-title: "Nobel winners"
+title: "thomas sease"
 author: "Naomi Ekas"
 output: github_document
 ---
@@ -10,15 +10,16 @@ library(tidyverse)
 
 Let's first load the data:
 
-```{r label-me1, eval=FALSE}
-nobel <- ___(___)
+```{r reading data, eval=FALSE}
+nobel <- read.csv("data-raw/nobel.csv")
+
 ```
 
 Then let's split the data into two:
 
 ```{r label-me2, eval=FALSE}
 # stem laureates
-___ <- nobel %>%
+nobel.split <- nobel %>%
   filter(___)
 
 # non-steam laureates
