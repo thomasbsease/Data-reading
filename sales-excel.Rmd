@@ -1,6 +1,6 @@
 ---
 title: "Sales"
-author: "Naomi Ekas"
+author: "Thomas Sease"
 output: github_document
 ---
 
@@ -16,6 +16,8 @@ knitr::include_graphics("images/sales-1.png")
 ```
 
 ```{r}
+data <- read_excel("data-raw/sales.xlsx", skip = 3, 
+                   col_names = c("id", "n"))
 
 ```
 
@@ -26,5 +28,13 @@ knitr::include_graphics("images/sales-2.png")
 ```
 
 ```{r}
+data <- data %>% 
+  mutate(is.brand.name = str_detect(id, "Brand"), 
+         brand = if_else(is.brand.name, id, NULL)) %>% 
+  fill(brand) %>% 
+  filter(!is.brand.name) %>% 
+  select(brand, id, n)
+  
+
 
 ```
