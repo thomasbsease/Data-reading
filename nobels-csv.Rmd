@@ -1,6 +1,6 @@
 ---
-title: "thomas sease"
-author: "Naomi Ekas"
+title: "Pulling in data"
+author: "Thomas Sease"
 output: github_document
 ---
 
@@ -17,18 +17,24 @@ nobel <- read.csv("data-raw/nobel.csv")
 
 Then let's split the data into two:
 
-```{r label-me2, eval=FALSE}
+```{r messing-with-the-data, eval=FALSE}
 # stem laureates
-nobel.split <- nobel %>%
-  filter(___)
+nobel_stem <- nobel %>%
+  filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics"))
 
 # non-steam laureates
-___ <- nobel %>%
-  filter(___)
+nobel_non_stem <- nobel %>%
+  filter(!(category %in% c("Physics", "Medicine", "Chemistry", "Economics")))
 ```
 
 And finally write out the data:
 
-```{r label-me3}
-# add code for writing out the two data frames here
+```{r saving-data}
+
+#write_csv(nobel_stem, file = "data/nobel.sem.csv")
+
+#write_csv(nobel_non_stem, "data/non_sem.csv")
+
+
+
 ```
